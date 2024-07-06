@@ -2,10 +2,11 @@ package db
 
 import (
 	"context"
-	"cryptcloud/ent"
 	"cryptcloud/pkg/config"
 	"fmt"
 	"log"
+
+	"entgo.io/ent"
 
 	_ "github.com/lib/pq"
 )
