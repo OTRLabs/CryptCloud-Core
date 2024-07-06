@@ -11,7 +11,7 @@ import (
 )
 
 func GetDatabase(ctx context.Context) *ent.Client {
-
+	ctx = context.Background()
 	// Load config
 	config, err := config.GetConfig()
 	if err != nil {
@@ -25,7 +25,6 @@ func GetDatabase(ctx context.Context) *ent.Client {
 		log.Fatalf("failed opening connection to sqlite: %v", err)
 	}
 	defer databasClient.Close()
-	ctx = context.Background()
 
 	// Run the auto migration tool.
 	if err := databasClient.Schema.Create(ctx); err != nil {
